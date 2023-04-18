@@ -338,10 +338,10 @@ end
 
 local function CharAdded(char)
     local p = plrs:GetPlayerFromCharacter(char)
-    if not char:FindFirstChild(self.PlayerRootPart) then
+    if not char:FindFirstChild(ESP.PlayerRootPart) then
         local ev
         ev = char.ChildAdded:Connect(function(c)
-            if c.Name == self.PlayerRootPart then
+            if c.Name == ESP.PlayerRootPart then
                 ev:Disconnect()
                 ESP:Add(char, {
                     Name = p.Name,
@@ -354,7 +354,7 @@ local function CharAdded(char)
         ESP:Add(char, {
             Name = p.Name,
             Player = p,
-            PrimaryPart = char[self.PlayerRootPart]
+            PrimaryPart = char[ESP.PlayerRootPart]
         })
     end
 end
